@@ -10,6 +10,8 @@ import tg.groupedeux.rescinema.service.SeanceService;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 @WebServlet(urlPatterns = "/app/home")
 public class AppHomeServlet extends HttpServlet {
@@ -17,9 +19,12 @@ public class AppHomeServlet extends HttpServlet {
     @Inject
     private SeanceService seanceService;
 
+    private static final DateTimeFormatter HUMAN_DT = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.systemDefault());
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("seances", seanceService.search(null, LocalDate.now()));
+        req.setAttribute("dtf", HUMAN_DT);
         req.getRequestDispatcher("/WEB-INF/jsp/app/home.jsp").forward(req, resp);
     }
 }

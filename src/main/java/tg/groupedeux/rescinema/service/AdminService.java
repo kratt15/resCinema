@@ -8,7 +8,7 @@ import tg.groupedeux.rescinema.model.Film;
 import tg.groupedeux.rescinema.model.Salle;
 import tg.groupedeux.rescinema.model.Seance;
 
-import java.math.BigDecimal;
+// import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.List;
 
