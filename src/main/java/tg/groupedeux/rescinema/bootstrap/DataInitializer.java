@@ -34,8 +34,8 @@ public class DataInitializer {
             var f2 = adminService.createFilm("Interstellar", "Space exploration", 169);
             var s1 = adminService.createSalle("Salle A", 5, 8);
             var s2 = adminService.createSalle("Salle B", 6, 10);
-            adminService.createSeance(f1.getId(), s1.getId(), OffsetDateTime.now().plusHours(2), new BigDecimal("5.50"));
-            adminService.createSeance(f2.getId(), s2.getId(), OffsetDateTime.now().plusHours(3), new BigDecimal("6.00"));
+            adminService.createSeance(f1.getId(), s1.getId(), OffsetDateTime.now().plusHours(2), new BigDecimal("2000.00"));
+            adminService.createSeance(f2.getId(), s2.getId(), OffsetDateTime.now().plusHours(3), new BigDecimal("5000.00"));
         } catch (Exception ignored) {
         }
     }
