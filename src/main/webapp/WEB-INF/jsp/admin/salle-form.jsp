@@ -2,7 +2,7 @@
 taglib prefix="c" uri="jakarta.tags.core" %>
 <c:set var="pageTitle" value="Admin - Éditer Salle" />
 <c:set var="isNew" value="${empty salle || salle.id == 0}" />
-<jsp:include page="/WEB-INF/jsp/layout/header.jspf" />
+<jsp:include page="/WEB-INF/jsp/layout/header.jsp" />
 <h3 class="mb-3">${isNew ? 'Ajouter' : 'Éditer'} une salle</h3>
 <form method="post" action="${pageContext.request.contextPath}/admin/salles">
   <input type="hidden" name="action" value="${isNew ? 'create' : 'update'}" />
@@ -40,4 +40,4 @@ taglib prefix="c" uri="jakarta.tags.core" %>
     <button class="btn btn-primary" type="submit">Enregistrer</button>
   </div>
 </form>
-<jsp:include page="/WEB-INF/jsp/layout/footer.jspf" />
+<jsp:include page="/WEB-INF/jsp/layout/footer.jsp" />

@@ -22,7 +22,13 @@ public class AdminSalleServlet extends HttpServlet {
         String action = req.getParameter("action");
         if ("edit".equals(action)) {
             Long id = Long.valueOf(req.getParameter("id"));
-            req.setAttribute("salle", adminService.updateSalle(id, null, 0, 0)); // get
+            if (id > 0) {
+                // Récupérer la salle existante pour édition
+                Salle salle = adminService.listSalles().stream()
+                    .filter(s -> s.getId().equals(id))
+                    .findFirst().orElse(null);
+                req.setAttribute("salle", salle);
+            }
             req.getRequestDispatcher("/WEB-INF/jsp/admin/salle-form.jsp").forward(req, resp);
         } else {
             req.setAttribute("salles", adminService.listSalles());

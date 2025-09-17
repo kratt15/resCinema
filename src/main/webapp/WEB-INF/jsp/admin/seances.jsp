@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> <%@
 taglib prefix="c" uri="jakarta.tags.core" %>
 <c:set var="pageTitle" value="Admin - Séances" />
-<jsp:include page="/WEB-INF/jsp/layout/header.jspf" />
+<jsp:include page="/WEB-INF/jsp/layout/header.jsp" />
 <h3 class="mb-3">Séances</h3>
 <a
   class="btn btn-success mb-3"
@@ -57,4 +57,4 @@ taglib prefix="c" uri="jakarta.tags.core" %>
     </div>
   </div>
 </div>
-<jsp:include page="/WEB-INF/jsp/layout/footer.jspf" />
+<jsp:include page="/WEB-INF/jsp/layout/footer.jsp" />

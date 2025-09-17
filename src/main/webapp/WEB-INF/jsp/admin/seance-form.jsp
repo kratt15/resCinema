@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <c:set var="pageTitle" value="Admin - Éditer Séance"/>
 <c:set var="isNew" value="${empty seance || seance.id == 0}"/>
-<jsp:include page="/WEB-INF/jsp/layout/header.jspf"/>
+<jsp:include page="/WEB-INF/jsp/layout/header.jsp"/>
 <h3 class="mb-3">${isNew ? 'Ajouter' : 'Éditer'} une séance</h3>
 <form method="post" action="${pageContext.request.contextPath}/admin/seances">
   <input type="hidden" name="action" value="${isNew ? 'create' : 'update'}"/>
@@ -25,7 +25,7 @@
   </div>
   <div class="mb-3">
     <label class="form-label">Début (ISO)</label>
-    <input name="startTime" type="datetime-local" class="form-control" value="${seance.startTime}" required/>
+    <input name="startTime" type="datetime-local" class="form-control" value="${startLocal}" required/>
   </div>
   <div class="mb-3">
     <label class="form-label">Prix</label>
@@ -36,4 +36,4 @@
     <button class="btn btn-primary" type="submit">Enregistrer</button>
   </div>
 </form>
-<jsp:include page="/WEB-INF/jsp/layout/footer.jspf"/>
+<jsp:include page="/WEB-INF/jsp/layout/footer.jsp"/>
