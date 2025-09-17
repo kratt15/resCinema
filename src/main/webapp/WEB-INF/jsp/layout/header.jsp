@@ -1,0 +1,141 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><c:out value="${empty pageTitle ? 'resCinema' : pageTitle}"/></title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .navbar-brand {
+        font-weight: 600;
+      }
+      .seat-grid td {
+        text-align: center;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-md bg-body-tertiary border-bottom shadow-sm"
+    >
+      <div class="container">
+        <c:choose>
+          <c:when test="${not empty sessionScope.userId}">
+            <a
+              class="navbar-brand"
+              href="${pageContext.request.contextPath}/app/home"
+              >resCinema</a
+            >
+          </c:when>
+          <c:otherwise>
+            <span class="navbar-brand">resCinema</span>
+          </c:otherwise>
+        </c:choose>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <c:if test="${not empty sessionScope.userId}">
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="${pageContext.request.contextPath}/app/home"
+                  >Séances</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="${pageContext.request.contextPath}/app/mes-reservations"
+                  >Mes réservations</a
+                >
+              </li>
+              <c:if test="${sessionScope.role eq 'ADMIN'}">
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    >Admin</a
+                  >
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="${pageContext.request.contextPath}/admin/films"
+                        >Films</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="${pageContext.request.contextPath}/admin/salles"
+                        >Salles</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="${pageContext.request.contextPath}/admin/seances"
+                        >Séances</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+              </c:if>
+            </c:if>
+          </ul>
+          <div class="d-flex">
+            <c:choose>
+              <c:when test="${empty sessionScope.userId}">
+                <a
+                  class="btn btn-outline-primary me-2"
+                  href="${pageContext.request.contextPath}/login"
+                  >Se connecter</a
+                >
+                <a
+                  class="btn btn-primary"
+                  href="${pageContext.request.contextPath}/register"
+                  >S'inscrire</a
+                >
+              </c:when>
+              <c:otherwise>
+                <form
+                  method="post"
+                  action="${pageContext.request.contextPath}/logout"
+                  class="mb-0"
+                >
+                  <button class="btn btn-outline-danger" type="submit">
+                    Déconnexion
+                  </button>
+                </form>
+              </c:otherwise>
+            </c:choose>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container py-4"></div>
+  </body>
+</html>

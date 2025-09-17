@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="pageTitle" value="Sélection des places"/>
-<jsp:include page="/WEB-INF/jsp/layout/header.jspf"/>
+<jsp:include page="/WEB-INF/jsp/layout/header.jsp"/>
 <h3 class="mb-3">Sélection des places</h3>
 <c:if test="${not empty error}"><div class="alert alert-danger">${error}</div></c:if>
 <form method="post" action="${pageContext.request.contextPath}/app/reserver">
@@ -41,4 +41,4 @@
     <button class="btn btn-primary" type="submit">Valider la réservation</button>
   </div>
 </form>
-<jsp:include page="/WEB-INF/jsp/layout/footer.jspf"/>
+<jsp:include page="/WEB-INF/jsp/layout/footer.jsp"/>

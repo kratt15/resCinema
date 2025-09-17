@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> <%@
-taglib prefix="c" uri="jakarta.tags.core" %>
+taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="pageTitle" value="Mes réservations" />
-<jsp:include page="/WEB-INF/jsp/layout/header.jspf" />
+<jsp:include page="/WEB-INF/jsp/layout/header.jsp" />
 <h3 class="mb-3">Mes réservations</h3>
 <div class="card shadow-sm">
   <div class="card-body p-0">
@@ -29,4 +29,4 @@ taglib prefix="c" uri="jakarta.tags.core" %>
     </div>
   </div>
 </div>
-<jsp:include page="/WEB-INF/jsp/layout/footer.jspf" />
+<jsp:include page="/WEB-INF/jsp/layout/footer.jsp" />

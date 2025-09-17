@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %> <%@
-taglib prefix="c" uri="jakarta.tags.core" %>
+taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="pageTitle" value="Inscription" />
-<jsp:include page="/WEB-INF/jsp/layout/header.jspf" />
+<jsp:include page="/WEB-INF/jsp/layout/header.jsp" />
 <div class="row justify-content-center">
   <div class="col-12 col-md-6 col-lg-4">
     <div class="card shadow-sm">
@@ -37,4 +37,4 @@ taglib prefix="c" uri="jakarta.tags.core" %>
     </div>
   </div>
 </div>
-<jsp:include page="/WEB-INF/jsp/layout/footer.jspf" />
+<jsp:include page="/WEB-INF/jsp/layout/footer.jsp" />
