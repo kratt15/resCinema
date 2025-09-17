@@ -23,7 +23,7 @@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
               <td>${r.seance.salle.name}</td>
               <td>${dtf.format(r.seance.startTime.toInstant())}</td>
               <td><span class="badge text-bg-info">${r.status}</span></td>
-              <td class="text-end">
+              <td class="text-end d-flex justify-content-end">
                 <a
                   class="btn btn-sm btn-outline-primary me-1"
                   href="${pageContext.request.contextPath}/app/reservation/edit?id=${r.id}"

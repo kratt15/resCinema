@@ -20,7 +20,7 @@ Le WAR est généré sous `target/resCinema-1.0-SNAPSHOT.war`.
 
 - D démarrer WildFly
 - Déployer le WAR via l'admin console ou `jboss-cli`.
-- Accéder: `http://localhost:8080/resCinema/`
+- Accéder: `http://localhost:8080/resCinema/` 
 
 ## Comptes de démo
 
@@ -42,3 +42,5 @@ Le WAR est généré sous `target/resCinema-1.0-SNAPSHOT.war`.
 ## Sécurité
 
 - Sessions HTTP, filtre protégeant `/app/*` et `/admin/*` (rôle ADMIN requis pour admin).
+
+n'oubliez pas de mettre à jour les element du http-test, que ce soit le port et les autre chose 

@@ -102,5 +102,6 @@
       </nav>
     </c:if>
     
-    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+    <c:set var="mainColClass" value="${empty sessionScope.userId ? 'col-12' : 'col-md-9 ms-sm-auto col-lg-10'}" />
+    <main class="${mainColClass} px-md-4 main-content">
       <div class="py-4">

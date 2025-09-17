@@ -1,0 +1,34 @@
+### Base URL
+@base = http://localhost:8081/resCinema-1.0-SNAPSHOT/api
+
+### Lister les séances du jour
+GET {{base}}/seances
+Accept: application/json
+
+### Rechercher par film et date (ISO yyyy-MM-dd)
+GET {{base}}/seances?filmId=1&date=2025-09-17
+Accept: application/json
+
+### Disponibilités d'une séance
+GET {{base}}/seances/1/disponibilites
+Accept: application/json
+
+### Créer une réservation
+POST {{base}}/reservations
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userId": 1,
+  "seanceId": 1,
+  "seats": [
+    { "row": 1, "seat": 1 },
+    { "row": 1, "seat": 2 }
+  ]
+}
+
+### Annuler une réservation
+DELETE {{base}}/reservations/1
+Accept: application/json
+
+
