@@ -42,7 +42,3 @@ Le WAR est généré sous `target/resCinema-1.0-SNAPSHOT.war`.
 ## Sécurité
 
 - Sessions HTTP, filtre protégeant `/app/*` et `/admin/*` (rôle ADMIN requis pour admin).
-
-## Licence
-
-Usage pédagogique.

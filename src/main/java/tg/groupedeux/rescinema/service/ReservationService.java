@@ -71,10 +71,17 @@ public class ReservationService {
     }
 
     public List<Reservation> listByUser(Long userId) {
+        // Requête simple sans JOIN FETCH pour éviter les problèmes d'alias
         TypedQuery<Reservation> q = entityManager.createQuery(
-                "SELECT r FROM Reservation r JOIN FETCH r.seance s JOIN FETCH s.film JOIN FETCH s.salle WHERE r.user.id = :uid ORDER BY r.createdAt DESC",
+                "SELECT r FROM Reservation r WHERE r.user.id = :uid ORDER BY r.createdAt DESC",
                 Reservation.class);
         q.setParameter("uid", userId);
-        return q.getResultList();
+        List<Reservation> reservations = q.getResultList();
+        // Force le chargement des relations pour éviter LazyInitializationException
+        for (Reservation r : reservations) {
+            r.getSeance().getFilm().getTitle(); // Force load
+            r.getSeance().getSalle().getName(); // Force load
+        }
+        return reservations;
     }
 }

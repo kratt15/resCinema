@@ -38,7 +38,7 @@
             >
           </c:when>
           <c:otherwise>
-            <span class="navbar-brand">resCinema</span>
+            <span class="navbar-brand">Cinema Plus</span>
           </c:otherwise>
         </c:choose>
         <button
